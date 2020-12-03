@@ -55,6 +55,7 @@ publish {
     desc = 'utils for android.'
     website = 'https://github.com/felix-maven/FelixUtils'
 }
+//gradlew clean build bintrayUpload -PbintrayUser=felixforever -PbintrayKey=b27dc317644ed376cf84138ff81c9ac8d0ce04ed -PdryRun=false
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'maven'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 29
@@ -9,8 +11,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode 10000
+        versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -22,8 +24,37 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.novoda:bintray-release:0.9.2'
+    }
+}
+uploadArchives{
+    repositories.mavenDeployer{
+        // 配置本地仓库路径，项目根目录下的repository目录中
+        repository(url: uri('E:/felix/maven/repository'))
+        pom.groupId = "com.felix.felixutils"// 唯一标识（通常为模块包名，也可以任意）
+        pom.artifactId = "felix-utils" // 项目名称（通常为类库模块名称，也可以任意）
+        pom.version = android.defaultConfig.versionName // 版本号
+    }
+}
+
+publish {
+    userOrg = 'felix-maven'
+    groupId = 'com.felix.felixutils'
+    artifactId = 'felix-utils'
+    publishVersion = '1.0.0'
+    desc = 'utils for android.'
+    website = 'https://github.com/felix-maven/FelixUtils'
+}
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

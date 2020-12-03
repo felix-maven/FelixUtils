@@ -1,4 +1,4 @@
-package com.felix.felixutils
+package com.felix.felixutils.app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

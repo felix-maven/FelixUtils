@@ -1,4 +1,4 @@
-package com.felix.felixutils.ext
+package com.felix.utils.ext
 
 import android.os.Parcel
 import android.os.Parcelable

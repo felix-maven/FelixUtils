@@ -1,4 +1,4 @@
-package com.felix.felixutils.widget.dialog
+package com.felix.utils.widget.dialog
 
 import android.app.ProgressDialog
 import android.content.Context

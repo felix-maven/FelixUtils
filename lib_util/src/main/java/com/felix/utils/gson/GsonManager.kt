@@ -1,4 +1,4 @@
-package com.felix.felixutils.gson
+package com.felix.utils.gson
 
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken

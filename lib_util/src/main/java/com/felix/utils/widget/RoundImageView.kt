@@ -1,10 +1,10 @@
-package com.felix.felixutils.widget
+package com.felix.utils.widget
 
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageView
-import com.felix.felixutils.R
+import com.felix.utils.R
 
 /**
  * @Author: Mingfa.Huang

@@ -1,4 +1,4 @@
-package com.felix.felixutils.handler
+package com.felix.utils.handler
 
 import android.os.Handler
 import android.os.Looper

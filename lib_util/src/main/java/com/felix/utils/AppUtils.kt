@@ -1,4 +1,4 @@
-package com.felix.felixutils
+package com.felix.utils
 
 import android.app.Application
 

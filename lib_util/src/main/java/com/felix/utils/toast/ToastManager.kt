@@ -2,8 +2,8 @@ package com.felix.lib_app_tools.toast
 
 import android.view.Gravity
 import android.widget.Toast
-import com.felix.felixutils.AppDelegate
-import com.felix.felixutils.handler.UIDelegate
+import com.felix.utils.AppDelegate
+import com.felix.utils.handler.UIDelegate
 
 internal class ToastManager private constructor() : IToast {
     companion object {

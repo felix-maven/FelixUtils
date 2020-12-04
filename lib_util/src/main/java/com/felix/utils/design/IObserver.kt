@@ -1,6 +1,6 @@
-package com.felix.felixutils.design
+package com.felix.utils.design
 
-import com.felix.felixutils.ext.deleteIf
+import com.felix.utils.ext.deleteIf
 import java.lang.ref.WeakReference
 
 interface IObserver<T> {

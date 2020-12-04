@@ -1,4 +1,4 @@
-package com.felix.felixutils.ext
+package com.felix.utils.ext
 
 fun <T, R : Iterator<T>> R.doOnItem(operation: (T) -> Unit): R {
     while (hasNext()) {

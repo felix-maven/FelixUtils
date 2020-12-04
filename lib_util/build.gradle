@@ -41,7 +41,7 @@ uploadArchives{
     repositories.mavenDeployer{
         // 配置本地仓库路径，项目根目录下的repository目录中
         repository(url: uri('E:/felix/maven/repository'))
-        pom.groupId = "com.felix.felixutils"// 唯一标识（通常为模块包名，也可以任意）
+        pom.groupId = "com.felix.utils"// 唯一标识（通常为模块包名，也可以任意）
         pom.artifactId = "felix-utils" // 项目名称（通常为类库模块名称，也可以任意）
         pom.version = android.defaultConfig.versionName // 版本号
     }
@@ -49,7 +49,7 @@ uploadArchives{
 
 publish {
     userOrg = 'felix-maven'
-    groupId = 'com.felix.felixutils'
+    groupId = 'com.felix.utils'
     artifactId = 'felix-utils'
     publishVersion = '1.0.0'
     desc = 'utils for android.'

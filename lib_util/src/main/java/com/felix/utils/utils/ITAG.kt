@@ -1,4 +1,4 @@
-package com.felix.felixutils.utils
+package com.felix.utils.utils
 
 interface ITAG {
     val TAG: String

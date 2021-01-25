@@ -6,9 +6,9 @@ import android.content.Context
 /**
  * @Author: Mingfa.Huang
  * @Date: 2020/8/16
- * @Des: IloadDialog
+ * @Des: ILoadDialog
  */
-interface IloadDialog {
+interface ILoadDialog {
     var ctx: Context?
     var dialog: ProgressDialog?
 

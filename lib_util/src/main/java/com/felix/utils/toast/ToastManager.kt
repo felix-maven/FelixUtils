@@ -16,7 +16,7 @@ internal class ToastManager private constructor() : IToast {
 
     init {
         UIDelegate.post {
-            toast = Toast(AppDelegate)
+            toast = Toast.makeText(AppDelegate, "", Toast.LENGTH_SHORT)
         }
     }
 

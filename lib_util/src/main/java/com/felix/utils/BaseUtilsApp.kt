@@ -8,7 +8,7 @@ import android.content.Context
  * @Date: 2020/11/28
  * @Des: BaseUtilsApp
  */
-class BaseUtilsApp : Application() {
+open class BaseUtilsApp : Application() {
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
         AppUtils.setup(this)

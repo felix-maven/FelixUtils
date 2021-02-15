@@ -1,8 +1,10 @@
 package com.felix.utils.utils
 
-import java.io.UnsupportedEncodingException
+import android.util.Base64
 import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
+import javax.crypto.Cipher
+import javax.crypto.spec.SecretKeySpec
+
 
 /**
  * @Author: Mingfa.Huang
@@ -10,21 +12,20 @@ import java.security.NoSuchAlgorithmException
  * @Des: EncryptionUtils
  */
 
-fun String.md5(): String {
-    val hash: ByteArray
-    hash = try {
-        MessageDigest.getInstance("MD5").digest(this.toByteArray(charset("UTF-8")))
-    } catch (e: NoSuchAlgorithmException) {
-        throw RuntimeException("NoSuchAlgorithmException", e)
-    } catch (e: UnsupportedEncodingException) {
-        throw RuntimeException("UnsupportedEncodingException", e)
-    }
-    val hex = StringBuilder(hash.size * 2)
-    for (b in hash) {
-        if (b.toInt() and 0xFF < 0x10) {
-            hex.append("0")
+fun String.md5(): String? {
+    return this.runCatching {
+        MessageDigest.getInstance("MD5").digest(this.toByteArray())
+    }.also {
+        it.exceptionOrNull()?.printStackTrace()
+    }.getOrNull()?.let { hash ->
+        val hex = StringBuilder(hash.size * 2)
+        for (b in hash) {
+            if (b.toInt() and 0xFF < 0x10) {
+                hex.append("0")
+            }
+            hex.append(Integer.toHexString(b.toInt() and 0xFF))
         }
-        hex.append(Integer.toHexString(b.toInt() and 0xFF))
+        hex.toString()
     }
-    return hex.toString()
 }
+

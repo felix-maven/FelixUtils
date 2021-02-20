@@ -10,21 +10,21 @@ import android.content.Context
  */
 interface ILoadDialog {
     var ctx: Context?
-    var dialog: ProgressDialog?
+    var progressDialog: ProgressDialog?
 
     fun showLoading(content: String) {
-        (dialog ?: kotlin.run {
+        (progressDialog ?: kotlin.run {
             ProgressDialog(ctx).also {
                 it.setProgressStyle(ProgressDialog.STYLE_SPINNER)
             }
         }).also {
-            dialog = it
+            progressDialog = it
         }.also {
             it.setMessage(content)
         }.show()
     }
 
     fun dismissLoading() {
-        dialog?.dismiss()
+        progressDialog?.dismiss()
     }
 }

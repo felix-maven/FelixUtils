@@ -11,11 +11,11 @@ import android.content.DialogInterface
  */
 interface IInfoDialog {
     var ctx: Context?
-    var dialog: AlertDialog?
+    var infoDialog: AlertDialog?
 
-    fun showInfo(content: String) {
-        (dialog ?: AlertDialog.Builder(ctx).create().apply {
-            setButton(DialogInterface.BUTTON_POSITIVE, "确定", { dialog, which ->
+    fun showInfo(content: String, conifrmText: String = "确定") {
+        (infoDialog ?: AlertDialog.Builder(ctx).create().apply {
+            setButton(DialogInterface.BUTTON_POSITIVE, conifrmText, { dialog, which ->
                 dismiss()
             })
         }).also {
@@ -24,6 +24,6 @@ interface IInfoDialog {
     }
 
     fun dismissInfo() {
-        dialog?.dismiss()
+        infoDialog?.dismiss()
     }
 }

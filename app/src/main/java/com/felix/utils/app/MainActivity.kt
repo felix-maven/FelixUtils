@@ -1,13 +1,11 @@
 package com.felix.utils.app
 
 import android.app.AlertDialog
+import android.app.ProgressDialog
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.graphics.drawable.toBitmap
 import com.felix.lib_app_tools.toast.ToastDelegate
 import com.felix.utils.utils.ITAG
 import com.felix.utils.utils.RSAUtils
@@ -15,15 +13,15 @@ import com.felix.utils.utils.encryption.aes
 import com.felix.utils.utils.encryption.decAes
 import com.felix.utils.utils.md5
 import com.felix.utils.widget.dialog.IInfoDialog
+import com.felix.utils.widget.dialog.ILoadDialog
 import kotlinx.android.synthetic.main.activity_main.*
-import java.io.ByteArrayOutputStream
-import java.io.File
 import java.security.interfaces.RSAPrivateKey
 import java.security.interfaces.RSAPublicKey
 
 
-class MainActivity : AppCompatActivity(), IInfoDialog, ITAG {
-    override var dialog: AlertDialog? = null
+class MainActivity : AppCompatActivity(), ILoadDialog, IInfoDialog, ITAG {
+    override var infoDialog: AlertDialog? = null
+    override var progressDialog: ProgressDialog? = null
     override var ctx: Context? = null
         get() = this
 
@@ -34,6 +32,7 @@ class MainActivity : AppCompatActivity(), IInfoDialog, ITAG {
         tvTest.setOnClickListener {
 //            rsaTest()
             showInfo("哈哈哈")
+            showLoading("呵呵呵")
         }
     }
 

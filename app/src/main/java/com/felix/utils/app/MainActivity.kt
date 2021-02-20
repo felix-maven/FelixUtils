@@ -1,5 +1,7 @@
 package com.felix.utils.app
 
+import android.app.AlertDialog
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -12,6 +14,7 @@ import com.felix.utils.utils.RSAUtils
 import com.felix.utils.utils.encryption.aes
 import com.felix.utils.utils.encryption.decAes
 import com.felix.utils.utils.md5
+import com.felix.utils.widget.dialog.IInfoDialog
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -19,13 +22,18 @@ import java.security.interfaces.RSAPrivateKey
 import java.security.interfaces.RSAPublicKey
 
 
-class MainActivity : AppCompatActivity(), ITAG {
+class MainActivity : AppCompatActivity(), IInfoDialog, ITAG {
+    override var dialog: AlertDialog? = null
+    override var ctx: Context? = null
+        get() = this
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         ToastDelegate.show("this is test")
         tvTest.setOnClickListener {
-            rsaTest()
+//            rsaTest()
+            showInfo("哈哈哈")
         }
     }
 

@@ -1,7 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'maven'
 apply plugin: 'com.novoda.bintray-release'
 
 android {
@@ -37,6 +36,7 @@ buildscript {
         classpath 'com.novoda:bintray-release:0.9.2'
     }
 }
+apply plugin: 'maven'
 uploadArchives {
     repositories.mavenDeployer {
         // 配置本地仓库路径，项目根目录下的repository目录中
